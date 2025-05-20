@@ -51,7 +51,7 @@ function App() {
 
   return (
     <Container>
-      <h1 className="text-center mb-4 pt-5">🌤Weather App</h1>
+      <h1 className="text-center mb-4 pt-5">🌤 Weather App</h1>
       <Card className="p-4 shadow">
         <label htmlFor="city" className="mb-2">Choose a city:</label>
         <select
