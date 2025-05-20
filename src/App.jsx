@@ -71,7 +71,7 @@ function App() {
         {loading && (
           <div className="text-center">
             <Spinner animation="border" variant="primary" />
-            <p>Loading weather...</p>
+            <p className='fs-3'>Loading weather...</p>
           </div>
         )}
 
