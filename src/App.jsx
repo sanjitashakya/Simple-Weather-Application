@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Card, Row, Spinner } from 'react-bootstrap';
 
 function App() {
-  const [apiKey, setApiKey] = useState("GnNqfnyVgCdq8qlfDopc5qGFsKAnNzQG");
   const [cities, setCities] = useState([]);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,8 +13,9 @@ function App() {
     fetchCitiesOptions();
   }, []);
 
+
   const fetchCitiesOptions = () => {
-    fetch(`http://dataservice.accuweather.com/locations/v1/topcities/150?apikey=${apiKey}`)
+    fetch(`${import.meta.env.VITE_WEATHER_URL}/locations/v1/topcities/150?apikey=${import.meta.env.VITE_API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         setCities(data);
@@ -27,7 +27,7 @@ function App() {
 
   const fetchCurrentWeather = (locationKey) => {
     setLoading(true);
-    fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}`)
+    fetch(`${import.meta.env.VITE_WEATHER_URL}/currentconditions/v1/${locationKey}?apikey=${import.meta.env.VITE_API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrentWeather(data[0]);
